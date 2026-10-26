@@ -13,3 +13,7 @@
 !/Instagram/carrossel/
 /Instagram/carrossel/*
 !/Instagram/carrossel/legenda.md
+
+# site (landing page publicada na Vercel)
+!/site/
+!/vercel.json
