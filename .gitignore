@@ -1,0 +1,15 @@
+# chaves de API e arquivos locais
+.env
+.env.*
+
+# só documentos: ignora tudo e libera apenas o que deve ir para o GitHub
+/*
+!/.gitignore
+!/prd.md
+!/docs/
+!/Instagram/
+/Instagram/*
+!/Instagram/legendas.md
+!/Instagram/carrossel/
+/Instagram/carrossel/*
+!/Instagram/carrossel/legenda.md
