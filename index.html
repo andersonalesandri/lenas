@@ -150,14 +150,15 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
 .band p{opacity:.95;margin-top:8px}
 /* Onde */
 .where{display:grid;grid-template-columns:1fr 1.1fr;gap:24px}
-.info{background:#fff;color:var(--fg);border-radius:var(--r-card);padding:28px;box-shadow:0 12px 30px rgba(120,40,0,.25)}
-.info h3{font-size:13px;font-family:'Geist Mono',monospace;color:var(--fg-muted);font-weight:500;margin:0 0 6px}
+.info{background:var(--primary);color:#fff;border-radius:var(--r-card);padding:28px}
+.info h3{font-size:13px;font-family:'Geist Mono',monospace;color:#fff;opacity:.85;font-weight:500;margin:0 0 6px}
 .info p{margin-bottom:20px}
 .info p:last-child{margin-bottom:0}
 .hours{list-style:none;margin-bottom:20px}
-.hours li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+.hours li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.35)}
 .hours li:last-child{border-bottom:0}
-.info a{color:var(--primary-dark);font-weight:500}
+.hours li span[style]{color:#fff !important;opacity:.85}
+.info a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .map{border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;min-height:320px}
 .map iframe{width:100%;height:100%;min-height:320px;border:0}
 footer{background:var(--primary);color:#fff;padding:40px 0 96px;font-size:14px}
@@ -179,11 +180,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 .band img.cut{position:absolute;right:max(24px,calc((100% - 1120px)/2 + 24px));top:-26%;height:150%;width:auto;pointer-events:none;filter:drop-shadow(0 18px 24px rgba(120,40,0,.35))}
 .band .wrap>div,.band .wrap>a{position:relative;z-index:2}
 .band .txt{max-width:520px}
-#onde{position:relative;isolation:isolate;background:var(--primary);color:#fff;overflow:hidden}
-#onde:before{content:'';position:absolute;inset:0;z-index:-1;background:url(assets/fundo-rustico.webp) center 68%/cover no-repeat;filter:grayscale(1) contrast(1.15);mix-blend-mode:multiply;opacity:.6}
-#onde:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(255,122,0,.35),rgba(224,107,0,.55))}
-#onde h2.t{color:#fff}#onde .sub{color:rgba(255,255,255,.92)}#onde .eyebrow{color:#fff;opacity:.9}
-#onde .map{border-color:rgba(255,255,255,.55)}
+
 .credit{font-size:12px;opacity:.85;margin-top:14px;width:100%}
 .credit a{font-weight:500;text-decoration:underline}
 @media(max-width:860px){.band .hero-art{height:70%;right:-30px;top:auto;bottom:10px;transform:none;opacity:.3}}
