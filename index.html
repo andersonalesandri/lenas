@@ -98,8 +98,10 @@ h2.t{font-size:clamp(28px,4.5vw,40px);line-height:1.1;letter-spacing:-.025em;fon
 .cat{margin-bottom:36px}
 .cat h3{font-size:22px;letter-spacing:-.015em;margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .cat h3 small{font:400 14px 'Geist',sans-serif;color:var(--fg-muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
-.dish{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.dish{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column}
+.dish img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#f2f2f2}
+.dish .bd{padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
 .dish .head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
 .dish h4{font-size:17px;font-weight:700;letter-spacing:-.01em}
 .dish p{color:var(--fg-muted);font-size:14.5px;flex:1}
@@ -166,6 +168,23 @@ footer .brand .avatar{border:2px solid #fff}
 footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:700}
 
 .about>*,.where>*{min-width:0}
+
+/* Foto + recorte */
+.about .photo{position:relative;border-radius:var(--r-card);overflow:hidden;border:1px solid var(--border);aspect-ratio:16/10}
+.about .photo img{width:100%;height:100%;object-fit:cover}
+.about .photo .num{position:absolute;left:0;bottom:0;right:0;padding:56px 24px 18px;background:linear-gradient(180deg,transparent,rgba(10,10,10,.78));color:#fff;font-size:clamp(56px,10vw,96px)}
+.about .photo .num small{color:#fff;opacity:.9;margin-bottom:0}
+.about .photo .num{color:var(--primary)}
+.band .wrap{min-height:220px}
+.band img.cut{position:absolute;right:max(24px,calc((100% - 1120px)/2 + 24px));top:-26%;height:150%;width:auto;pointer-events:none;filter:drop-shadow(0 18px 24px rgba(120,40,0,.35))}
+.band .wrap>div,.band .wrap>a{position:relative;z-index:2}
+.band .txt{max-width:520px}
+#onde{background:linear-gradient(rgba(24,10,2,.80),rgba(24,10,2,.82)),url(assets/fundo-rustico.webp) center 68%/cover no-repeat;color:#fff}
+#onde h2.t{color:#fff}#onde .sub{color:rgba(255,255,255,.85)}#onde .eyebrow{color:#ffb066}
+#onde .map{border-color:rgba(255,255,255,.25)}
+.credit{font-size:12px;opacity:.85;margin-top:14px;width:100%}
+.credit a{font-weight:500;text-decoration:underline}
+@media(max-width:860px){.band img.cut{height:110%;top:auto;bottom:-12%;right:-6%;opacity:.28}}
 @media(max-width:1100px){.slide .photo{transform:scale(1.15)}}
 @media(max-width:860px){
   .about,.where{grid-template-columns:1fr;gap:28px}
@@ -241,7 +260,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 </div></section>
 
 <section id="sobre"><div class="wrap about">
-  <div class="num"><small>Na região desde</small>1995</div>
+  <div class="photo"><img src="assets/balcao.webp" alt="Hambúrguer servido no balcão" loading="lazy"><div class="num"><small>Na região desde</small>1995</div></div>
   <div>
     <div class="eyebrow">Nossa história</div>
     <h2 class="t">Tradição de bairro, agora a um toque de distância</h2>
@@ -261,6 +280,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 </div></section>
 
 <div class="band">
+  <img class="cut" src="assets/burgers-recorte.png" alt="" loading="lazy">
   <svg class="art" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <defs>
       <g id="i-burger" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -297,8 +317,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
     </g>
   </svg>
   <div class="wrap">
-    <div><h2>Bateu a fome?</h2><p>Terça a domingo, das 18h às 00h. Monte o pedido e envie pelo WhatsApp.</p></div>
-    <a class="btn onprimary" href="#cardapio">Fazer meu pedido</a>
+    <div class="txt"><h2>Bateu a fome?</h2><p>Terça a domingo, das 18h às 00h. Monte o pedido e envie pelo WhatsApp.</p><a class="btn onprimary" href="#cardapio" style="margin-top:22px">Fazer meu pedido</a></div>
   </div>
 </div>
 
@@ -321,6 +340,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 <footer><div class="wrap">
   <div class="brand"><img class="avatar" src="assets/logo.png" alt="">Lena's Lanches · Hamburgueria desde 1995</div>
   <div>Av. Meriti, 3963 · Cordovil · RJ · <a href="https://wa.me/5521994690715" target="_blank" rel="noopener">21 99469-0715</a></div>
+  <div class="credit">Fotos ilustrativas de <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a>, de uso gratuito. As fotos do cardápio não são dos pratos da Lena's.</div>
 </div></footer>
 
 <button class="cartbar" id="cartbar" type="button"><span id="cb-count">0 itens</span><b id="cb-total">R$ 0,00</b><span>Ver pedido</span></button>
@@ -340,26 +360,26 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 // ---------- Dados do cardápio (valores do iFood) ----------
 var CATS=['Hambúrgueres','Mistos','Promoções','Sobremesa'];
 var ITEMS=[
- {c:'Promoções',n:'Big tudo + batata frita (P) + guaravita',d:'Big tudo, batata frita pequena e guaravita.',p:3700},
- {c:'Promoções',n:'X burguer + refri lata',d:'X burguer com refrigerante em lata.',p:1700},
- {c:'Hambúrgueres',n:'Big duplo',d:'Pão, 2 carnes, 2 queijos, presunto, 2 ovos, bacon, calabresa, milho, ervilha e alface.',p:2600,o:2800},
- {c:'Hambúrgueres',n:'Big tudo',d:'Pão, carne, queijo, presunto, ovo, bacon, calabresa, milho, ervilha e alface.',p:2400},
- {c:'Hambúrgueres',n:'Triplo x burguer',d:'Pão, 3 carnes, 3 queijos e alface.',p:2100,o:2200},
- {c:'Hambúrgueres',n:'Duplo x burguer',d:'Pão, 2 carnes, 2 queijos e alface.',p:1900},
- {c:'Hambúrgueres',n:'X picanha',d:'Pão, carne de picanha, queijo e alface.',p:2000},
- {c:'Hambúrgueres',n:'X frango',d:'Pão, frango empanado, queijo e alface.',p:1900},
- {c:'Hambúrgueres',n:'X egg bacon',d:'Pão, carne, queijo, ovo, bacon e alface.',p:1700,o:1800},
- {c:'Hambúrgueres',n:'X egg calabresa',d:'Pão, carne, queijo, calabresa, ovo e alface.',p:1700},
- {c:'Hambúrgueres',n:'X egg presunto',d:'Pão, carne, queijo, presunto, ovo e alface.',p:1700},
- {c:'Hambúrgueres',n:'X bacon',d:'Pão, carne, queijo, bacon e alface.',p:1600},
- {c:'Hambúrgueres',n:'X calabresa',d:'Pão, carne, queijo, calabresa e alface.',p:1500},
- {c:'Hambúrgueres',n:'X presunto',d:'Pão, carne, queijo, presunto e alface.',p:1500},
- {c:'Hambúrgueres',n:'X egg',d:'Pão, carne, queijo, ovo e alface.',p:1400,o:1500},
- {c:'Hambúrgueres',n:'X burguer',d:'Pão, carne, queijo e alface.',p:1300},
- {c:'Hambúrgueres',n:'Hambúrguer',d:'Pão, carne e alface.',p:1100},
- {c:'Mistos',n:'Misto quente com ovo',d:'Pão, queijo, ovo e presunto.',p:1700},
- {c:'Mistos',n:'Misto quente',d:'Pão, queijo e presunto.',p:1400},
- {c:'Sobremesa',n:'Pudim (unidade)',d:'Pudim individual.',p:650}
+ {c:'Promoções',n:'Big tudo + batata frita (P) + guaravita',i:'18713428',d:'Big tudo, batata frita pequena e guaravita.',p:3700},
+ {c:'Promoções',n:'X burguer + refri lata',i:'10922927',d:'X burguer com refrigerante em lata.',p:1700},
+ {c:'Hambúrgueres',n:'Big duplo',i:'6697455',d:'Pão, 2 carnes, 2 queijos, presunto, 2 ovos, bacon, calabresa, milho, ervilha e alface.',p:2600,o:2800},
+ {c:'Hambúrgueres',n:'Big tudo',i:'15010309',d:'Pão, carne, queijo, presunto, ovo, bacon, calabresa, milho, ervilha e alface.',p:2400},
+ {c:'Hambúrgueres',n:'Triplo x burguer',i:'14709732',d:'Pão, 3 carnes, 3 queijos e alface.',p:2100,o:2200},
+ {c:'Hambúrgueres',n:'Duplo x burguer',i:'10922927',d:'Pão, 2 carnes, 2 queijos e alface.',p:1900},
+ {c:'Hambúrgueres',n:'X picanha',i:'30700608',d:'Pão, carne de picanha, queijo e alface.',p:2000},
+ {c:'Hambúrgueres',n:'X frango',i:'34407059',d:'Pão, frango empanado, queijo e alface.',p:1900},
+ {c:'Hambúrgueres',n:'X egg bacon',i:'15010289',d:'Pão, carne, queijo, ovo, bacon e alface.',p:1700,o:1800},
+ {c:'Hambúrgueres',n:'X egg calabresa',i:'28705635',d:'Pão, carne, queijo, calabresa, ovo e alface.',p:1700},
+ {c:'Hambúrgueres',n:'X egg presunto',i:'28705635',d:'Pão, carne, queijo, presunto, ovo e alface.',p:1700},
+ {c:'Hambúrgueres',n:'X bacon',i:'12325104',d:'Pão, carne, queijo, bacon e alface.',p:1600},
+ {c:'Hambúrgueres',n:'X calabresa',i:'19247585',d:'Pão, carne, queijo, calabresa e alface.',p:1500},
+ {c:'Hambúrgueres',n:'X presunto',i:'19247585',d:'Pão, carne, queijo, presunto e alface.',p:1500},
+ {c:'Hambúrgueres',n:'X egg',i:'28705635',d:'Pão, carne, queijo, ovo e alface.',p:1400,o:1500},
+ {c:'Hambúrgueres',n:'X burguer',i:'10922927',d:'Pão, carne, queijo e alface.',p:1300},
+ {c:'Hambúrgueres',n:'Hambúrguer',i:'19247585',d:'Pão, carne e alface.',p:1100},
+ {c:'Mistos',n:'Misto quente com ovo',i:'15110224',d:'Pão, queijo, ovo e presunto.',p:1700},
+ {c:'Mistos',n:'Misto quente',i:'4394139',d:'Pão, queijo e presunto.',p:1400},
+ {c:'Sobremesa',n:'Pudim (unidade)',i:'34462833',d:'Pudim individual.',p:650}
 ];
 ITEMS.forEach(function(it,i){it.id=i});
 var qty={}, filtro='Todos', busca='';
@@ -389,7 +409,7 @@ function renderMenu(){
     if(!list.length) return;
     html+='<div class="cat"><h3>'+cat+'<small>'+list.length+(list.length>1?' itens':' item')+'</small></h3><div class="grid">'+
       list.map(function(it){
-        return '<article class="dish"><div class="head"><h4>'+esc(it.n)+'</h4>'+(it.o?'<span class="badge promo">Oferta</span>':'')+'</div><p>'+esc(it.d)+'</p><div class="foot"><span class="price">'+brl(it.p)+(it.o?'<s>'+brl(it.o)+'</s>':'')+'</span><span data-ctrl="'+it.id+'">'+ctrl(it)+'</span></div></article>';
+        return '<article class="dish"><img src="assets/menu/'+it.i+'.webp" alt="'+esc(it.n)+'" loading="lazy"><div class="bd"><div class="head"><h4>'+esc(it.n)+'</h4>'+(it.o?'<span class="badge promo">Oferta</span>':'')+'</div><p>'+esc(it.d)+'</p><div class="foot"><span class="price">'+brl(it.p)+(it.o?'<s>'+brl(it.o)+'</s>':'')+'</span><span data-ctrl="'+it.id+'">'+ctrl(it)+'</span></div></div></article>';
       }).join('')+'</div></div>';
   });
   $('#menu').innerHTML=html||'<div class="empty">Nenhum item encontrado. Tente outra busca.</div>';
