@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lena's Lanches | Hamburgueria em Cordovil, Rio de Janeiro</title>
-<meta name="description" content="Lena's Lanches, hamburgueria em Cordovil desde 1995. Hambúrgueres, cachorro-quente e porções. Peça pelo WhatsApp: 21 99469-0715. Terça a domingo, das 18h às 00h.">
+<meta name="description" content="Lena's Lanches, hamburgueria em Cordovil desde 1995. Cardápio online com hambúrgueres, mistos e promoções. Peça pelo WhatsApp: 21 99469-0715. Terça a domingo, das 18h às 00h.">
 <meta name="theme-color" content="#ff7a00">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lena's Lanches | Hamburgueria em Cordovil">
-<meta property="og:description" content="Lanche de verdade desde 1995. Peça pelo WhatsApp: 21 99469-0715.">
+<meta property="og:description" content="Cardápio online e pedido pelo WhatsApp: 21 99469-0715.">
 <meta property="og:image" content="assets/hamburgueres.webp">
 <link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,12 +41,15 @@ a{color:inherit}
 .btn.ghost{background:#fff;color:var(--fg);border-color:var(--border)}
 .btn.ghost:hover{border-color:var(--fg)}
 .btn.onprimary{background:#fff;color:var(--primary-dark)}
+.btn.sm{height:36px;padding:0 14px;font-size:14px}
 .btn svg{width:20px;height:20px;fill:currentColor}
 /* Badge */
 .badge{display:inline-flex;align-items:center;gap:8px;height:28px;padding:0 12px;border-radius:var(--r-pill);background:var(--primary-soft);color:var(--primary-dark);font-size:13px;font-weight:500}
 .badge i{width:8px;height:8px;border-radius:50%;background:var(--fg-muted)}
 .badge.open{background:#e9f9ef;color:#15803d}.badge.open i{background:var(--success)}
-.badge.closed{background:#f4f4f4;color:var(--fg-muted)}
+.badge.closed{background:#fff;color:var(--fg-muted)}
+.badge.off{background:#f4f4f4;color:var(--fg-muted)}
+.badge.promo{background:var(--primary-soft);color:var(--primary-dark)}
 /* Header */
 header.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
 header.nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
@@ -56,37 +59,77 @@ header.nav nav{display:flex;gap:4px;margin-left:auto}
 header.nav nav a{text-decoration:none;color:var(--fg-muted);font-size:15px;font-weight:500;padding:8px 12px;border-radius:var(--r-button)}
 header.nav nav a:hover{color:var(--fg);background:#f5f5f5}
 header.nav .btn{height:40px;padding:0 16px;font-size:15px}
-/* Hero */
-.hero{padding:64px 0 72px}
-.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
-.hero h1{font-size:clamp(36px,6vw,60px);line-height:1.04;letter-spacing:-.03em;font-weight:700;margin:16px 0 16px}
-.hero h1 span{color:var(--primary)}
-.hero p.lead{font-size:18px;color:var(--fg-muted);max-width:480px;margin-bottom:28px}
-.hero .actions{display:flex;gap:12px;flex-wrap:wrap}
-.hero .facts{display:flex;gap:28px;margin-top:36px;padding-top:24px;border-top:1px solid var(--border)}
-.hero .facts b{display:block;font-size:24px;letter-spacing:-.02em}
-.hero .facts span{font-size:14px;color:var(--fg-muted)}
-.hero .pic img{width:100%;border-radius:var(--r-card);border:1px solid var(--border);aspect-ratio:4/5;object-fit:cover}
+/* Hero em slides */
+.slider{position:relative;overflow:hidden;background:#d85404;color:#fff}
+.slides{position:relative;min-height:600px}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s;display:flex;align-items:center;background:var(--bg)}
+.slide.on{opacity:1;visibility:visible;position:relative;min-height:600px}
+.slide:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(255,170,60,.35),transparent 55%)}
+.slide .photo{position:absolute;top:0;right:0;bottom:0;width:62%;object-fit:cover;object-position:center 40%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 42%);mask-image:linear-gradient(90deg,transparent 0,#000 42%)}
+.slide .wrap{position:relative;z-index:2;width:100%;padding-top:72px;padding-bottom:96px}
+.slide .txt{max-width:520px}
+.slide .badge{margin-bottom:18px}
+.slide h1,.slide h2{font-size:clamp(36px,5.6vw,64px);line-height:1.04;letter-spacing:-.03em;font-weight:700;color:#fff;margin-bottom:16px}
+.slide p.lead{font-size:19px;opacity:.96;margin-bottom:28px;max-width:460px}
+.slide .actions{display:flex;gap:12px;flex-wrap:wrap}
+.slide .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+.slide .btn.ghost:hover{background:rgba(255,255,255,.15);border-color:#fff}
+.slide .btn.primary{background:#fff;color:var(--primary-dark)}
+.slide .btn.primary:hover{background:#fff2e5}
+.dots{position:absolute;left:0;right:0;bottom:28px;z-index:5;display:flex;justify-content:center;gap:8px}
+.dots button{width:10px;height:10px;border-radius:var(--r-pill);border:0;background:rgba(255,255,255,.5);cursor:pointer;padding:0;transition:width .2s,background .2s}
+.dots button[aria-current="true"]{width:30px;background:#fff}
+.arrow{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(0,0,0,.18);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.arrow:hover{background:rgba(0,0,0,.35)}
+.arrow svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2.2}
+.arrow.prev{left:18px}.arrow.next{right:18px}
 section{padding:80px 0}
 section.soft{background:#fafafa;border-block:1px solid var(--border)}
 .eyebrow{font-family:'Geist Mono',monospace;font-size:13px;color:var(--primary-dark);font-weight:500;margin-bottom:8px}
-h2{font-size:clamp(28px,4.5vw,40px);line-height:1.1;letter-spacing:-.025em;font-weight:700}
-.sub{color:var(--fg-muted);font-size:18px;max-width:620px;margin:12px 0 32px}
-/* Tabs */
-.tabs{display:inline-flex;gap:4px;padding:4px;background:#f2f2f2;border-radius:var(--r-button);margin-bottom:28px;flex-wrap:wrap}
+h2.t{font-size:clamp(28px,4.5vw,40px);line-height:1.1;letter-spacing:-.025em;font-weight:700}
+.sub{color:var(--fg-muted);font-size:18px;max-width:640px;margin:12px 0 28px}
+/* Cardápio online */
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:24px}
+.tabs{display:inline-flex;gap:4px;padding:4px;background:#f2f2f2;border-radius:var(--r-button);flex-wrap:wrap}
 .tabs button{border:0;background:transparent;font:500 15px 'Geist',sans-serif;color:var(--fg-muted);padding:9px 16px;border-radius:var(--r-input);cursor:pointer}
 .tabs button[aria-selected="true"]{background:#fff;color:var(--fg);box-shadow:0 1px 2px rgba(0,0,0,.1)}
-/* Card */
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column}
-.card img{aspect-ratio:4/5;object-fit:cover;width:100%}
-.card .body{padding:18px 20px 22px}
-.card h3{font-size:19px;letter-spacing:-.01em;font-weight:700}
-.card p{font-size:15px;color:var(--fg-muted);margin-top:4px}
-.card .link{display:inline-block;margin-top:14px;font-size:15px;font-weight:500;color:var(--primary-dark);text-decoration:none}
-.card .link:hover{text-decoration:underline}
-.menu .card[hidden]{display:none}
-.note{font-size:14px;color:var(--fg-muted);margin-top:24px}
+.input{height:44px;border:1px solid var(--border);border-radius:var(--r-input);padding:0 14px;font:400 15px 'Geist',sans-serif;background:#fff;min-width:240px;flex:1;max-width:360px}
+.input:focus{outline:2px solid var(--primary);border-color:var(--primary)}
+.cat{margin-bottom:36px}
+.cat h3{font-size:22px;letter-spacing:-.015em;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.cat h3 small{font:400 14px 'Geist',sans-serif;color:var(--fg-muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.dish{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.dish .head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.dish h4{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.dish p{color:var(--fg-muted);font-size:14.5px;flex:1}
+.dish .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.price{font-weight:700;font-size:18px}
+.price s{font-weight:400;font-size:14px;color:var(--fg-muted);margin-left:6px}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:var(--r-button);overflow:hidden}
+.stepper button{width:34px;height:34px;border:0;background:#fff;font:500 18px 'Geist',sans-serif;cursor:pointer;color:var(--primary-dark)}
+.stepper button:hover{background:var(--primary-soft)}
+.stepper span{min-width:30px;text-align:center;font-weight:500}
+.empty{padding:40px;text-align:center;color:var(--fg-muted);border:1px dashed var(--border);border-radius:var(--r-card)}
+.note{font-size:14px;color:var(--fg-muted);margin-top:8px}
+/* Barra do pedido + modal */
+.cartbar{position:fixed;left:50%;bottom:18px;transform:translate(-50%,140%);z-index:45;background:var(--primary);color:#fff;border:0;border-radius:var(--r-pill);height:56px;padding:0 24px;display:flex;align-items:center;gap:16px;font:500 16px 'Geist',sans-serif;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.28);transition:transform .25s}
+.cartbar.show{transform:translate(-50%,0)}
+.cartbar b{font-weight:700}
+dialog{border:0;border-radius:var(--r-card);padding:0;width:min(520px,calc(100% - 24px));max-height:calc(100% - 32px);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+.m-head{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--border)}
+.m-head h3{font-size:20px}
+.m-head button{border:0;background:#f4f4f4;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px}
+.m-body{padding:8px 22px;overflow:auto;max-height:46vh}
+.line{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)}
+.line:last-child{border-bottom:0}
+.line b{display:block;font-size:15px}.line small{color:var(--fg-muted)}
+.m-foot{padding:18px 22px;border-top:1px solid var(--border);display:grid;gap:12px}
+.m-foot textarea{width:100%;border:1px solid var(--border);border-radius:var(--r-input);padding:10px 12px;font:400 15px 'Geist',sans-serif;resize:vertical;min-height:64px}
+.m-foot textarea:focus{outline:2px solid var(--primary);border-color:var(--primary)}
+.total{display:flex;justify-content:space-between;font-size:18px;font-weight:700}
+.m-foot small{color:var(--fg-muted);font-size:13px}
 /* Sobre */
 .about{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center}
 .about .num{font-size:clamp(80px,15vw,150px);font-weight:700;letter-spacing:-.05em;line-height:.9;color:var(--primary)}
@@ -97,15 +140,16 @@ h2{font-size:clamp(28px,4.5vw,40px);line-height:1.1;letter-spacing:-.025em;font-
 .step:before{content:counter(s);display:flex;width:36px;height:36px;border-radius:var(--r-pill);background:var(--primary-soft);color:var(--primary-dark);font-weight:700;align-items:center;justify-content:center;margin-bottom:14px}
 .step h3{font-size:18px;font-weight:700;margin-bottom:4px}
 .step p{color:var(--fg-muted);font-size:15px}
-/* CTA band */
-.band{background:var(--primary);color:#fff;padding:56px 0}
-.band .wrap{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.band h2{color:#fff;max-width:560px}
+/* Faixa laranja com ilustração */
+.band{position:relative;overflow:hidden;background:var(--primary);color:#fff;padding:64px 0}
+.band svg.art{position:absolute;inset:0;width:100%;height:100%}
+.band .wrap{position:relative;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.band h2{color:#fff;font-size:clamp(28px,4.5vw,40px);letter-spacing:-.025em;max-width:560px}
 .band p{opacity:.95;margin-top:8px}
 /* Onde */
 .where{display:grid;grid-template-columns:1fr 1.1fr;gap:24px}
 .info{border:1px solid var(--border);border-radius:var(--r-card);padding:28px;background:#fff}
-.info h3{font-size:13px;font-family:'Geist Mono',monospace;color:var(--fg-muted);font-weight:500;text-transform:none;margin:0 0 6px}
+.info h3{font-size:13px;font-family:'Geist Mono',monospace;color:var(--fg-muted);font-weight:500;margin:0 0 6px}
 .info p{margin-bottom:20px}
 .info p:last-child{margin-bottom:0}
 .hours{list-style:none;margin-bottom:20px}
@@ -114,18 +158,22 @@ h2{font-size:clamp(28px,4.5vw,40px);line-height:1.1;letter-spacing:-.025em;font-
 .info a{color:var(--primary-dark);font-weight:500}
 .map{border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;min-height:320px}
 .map iframe{width:100%;height:100%;min-height:320px;border:0}
-footer{border-top:1px solid var(--border);padding:36px 0;color:var(--fg-muted);font-size:14px}
+footer{border-top:1px solid var(--border);padding:36px 0 96px;color:var(--fg-muted);font-size:14px}
 footer .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 footer .brand{display:flex;gap:12px;align-items:center;color:var(--fg);font-weight:500}
 footer a{color:var(--primary-dark);text-decoration:none;font-weight:500}
-.fab{position:fixed;right:18px;bottom:18px;z-index:40;background:var(--primary);color:#fff;height:52px;padding:0 20px;border-radius:var(--r-pill);display:none;align-items:center;gap:10px;font-weight:500;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)}
-.fab svg{width:22px;height:22px;fill:#fff}
-.hero .wrap>*,.about>*,.where>*{min-width:0}
+.about>*,.where>*{min-width:0}
 @media(max-width:860px){
-  .hero{padding:36px 0 48px}.hero .wrap,.about,.where{grid-template-columns:1fr;gap:28px}
-  .hero .pic{order:-1}.hero .pic img{aspect-ratio:1/1}
+  .about,.where{grid-template-columns:1fr;gap:28px}
   header.nav nav{display:none}header.nav .btn{margin-left:auto}
-  .fab{display:inline-flex}section{padding:56px 0}
+  section{padding:56px 0}
+  .slides,.slide.on{min-height:640px}
+  .slide{align-items:flex-end}
+  .slide .photo{width:100%;height:58%;bottom:auto;top:0;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
+  .slide .wrap{padding-top:0;padding-bottom:84px}
+  .slide .txt{max-width:none}
+  .arrow{display:none}
+  .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -135,78 +183,124 @@ footer a{color:var(--primary-dark);text-decoration:none;font-weight:500}
   <img class="avatar" src="assets/logo.png" alt="Lena's Hamburgueria">
   <span class="name">Lena's Lanches</span>
   <nav aria-label="Seções"><a href="#cardapio">Cardápio</a><a href="#sobre">Desde 1995</a><a href="#pedir">Como pedir</a><a href="#onde">Onde estamos</a></nav>
-  <a class="btn primary" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">Pedir agora</a>
+  <a class="btn primary" href="#cardapio">Fazer pedido</a>
 </div></header>
 
 <main>
-<section class="hero"><div class="wrap">
-  <div>
-    <span id="status" class="badge"><i></i><span>Terça a domingo, das 18h às 00h</span></span>
-    <h1>Lanche de verdade, <span>desde 1995</span> em Cordovil</h1>
-    <p class="lead">Hambúrguer, cachorro-quente e porção saindo da chapa na hora, do jeito que o bairro conhece há mais de 30 anos.</p>
-    <div class="actions">
-      <a class="btn primary" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">
-        <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.400 8.600 3.400 15.500c0 2.400.7 4.700 1.900 6.600L3.200 29l7.100-2.100A12.500 12.500 0 0016 28c7 0 12.600-5.600 12.600-12.500S23 3 16 3zm5.900 15.100c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.400 8.400 0 01-4.200-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.200-1.200 2.900s1.200 3.400 1.400 3.600c.2.200 2.400 3.700 5.800 5.100 2.100.9 2.900.9 3.900.8.600-.1 1.900-.8 2.200-1.500.3-.8.300-1.400.2-1.500-.1-.2-.3-.3-.6-.4z"/></svg>
-        Pedir pelo WhatsApp</a>
-      <a class="btn ghost" href="#cardapio">Ver cardápio</a>
+<!-- Hero em slides -->
+<section class="slider" style="padding:0" aria-roledescription="carrossel" aria-label="Destaques">
+  <div class="slides">
+    <div class="slide on" style="--bg:#d85404">
+      <img class="photo" src="assets/slide1.webp" alt="Hambúrgueres da Lena's Lanches" fetchpriority="high">
+      <div class="wrap"><div class="txt">
+        <span id="status" class="badge closed"><i></i><span>Terça a domingo, das 18h às 00h</span></span>
+        <h1>Lanche de verdade, desde 1995 em Cordovil</h1>
+        <p class="lead">Hambúrguer saindo da chapa na hora, do jeito que o bairro conhece há mais de 30 anos.</p>
+        <div class="actions"><a class="btn primary" href="#cardapio">Ver cardápio e pedir</a><a class="btn ghost" href="#onde">Como chegar</a></div>
+      </div></div>
     </div>
-    <div class="facts">
-      <div><b>1995</b><span>Na região desde</span></div>
-      <div><b>6 dias</b><span>Por semana</span></div>
-      <div><b class="mono" style="font-size:20px">18h–00h</b><span>Horário</span></div>
+    <div class="slide" style="--bg:#e66306">
+      <img class="photo" src="assets/slide2.webp" alt="Hambúrguer com bacon, ovo e queijo" loading="lazy">
+      <div class="wrap"><div class="txt">
+        <span class="badge promo"><i style="background:var(--primary)"></i>Do simples ao completo</span>
+        <h2>Do hambúrguer simples ao Big tudo</h2>
+        <p class="lead">Mais de 15 opções de lanche, de R$ 11 a R$ 26. Escolha o seu e monte o pedido aqui no site.</p>
+        <div class="actions"><a class="btn primary" href="#cardapio">Montar meu pedido</a></div>
+      </div></div>
+    </div>
+    <div class="slide" style="--bg:#e25200">
+      <img class="photo" src="assets/slide3.webp" alt="X bacon com queijo derretido" loading="lazy">
+      <div class="wrap"><div class="txt">
+        <span class="badge promo"><i style="background:var(--primary)"></i>Promoções</span>
+        <h2>Big tudo + batata + guaravita por R$ 37</h2>
+        <p class="lead">Ou X burguer + refri lata por R$ 17. Veja as promoções no cardápio.</p>
+        <div class="actions"><a class="btn primary" href="#cardapio" data-goto="Promoções">Ver promoções</a></div>
+      </div></div>
     </div>
   </div>
-  <div class="pic"><img src="assets/hamburgueres.webp" alt="Hambúrgueres da Lena's Lanches" fetchpriority="high"></div>
-</div></section>
+  <button class="arrow prev" aria-label="Slide anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="arrow next" aria-label="Próximo slide"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <div class="dots" role="tablist" aria-label="Slides"></div>
+</section>
 
 <section id="cardapio" class="soft"><div class="wrap">
-  <div class="eyebrow">Cardápio</div>
-  <h2>O que você pede por aqui</h2>
-  <p class="sub">Lanches, porções e combos. Sabores e valores do dia você confere direto no WhatsApp.</p>
-  <div class="tabs" role="tablist" aria-label="Categorias">
-    <button role="tab" aria-selected="true" data-f="all">Todos</button>
-    <button role="tab" aria-selected="false" data-f="burger">Hambúrgueres</button>
-    <button role="tab" aria-selected="false" data-f="dog">Cachorro-quente</button>
-    <button role="tab" aria-selected="false" data-f="side">Porções</button>
-    <button role="tab" aria-selected="false" data-f="combo">Combos</button>
+  <div class="eyebrow">Cardápio online</div>
+  <h2 class="t">Escolha e peça pelo WhatsApp</h2>
+  <p class="sub">Adicione os itens, confira o total e envie o pedido para o nosso WhatsApp. Entrega e disponibilidade a gente confirma na conversa.</p>
+  <div class="toolbar">
+    <div class="tabs" role="tablist" aria-label="Categorias" id="tabs"></div>
+    <input class="input" id="busca" type="search" placeholder="Buscar no cardápio" aria-label="Buscar no cardápio">
   </div>
-  <div class="menu">
-    <article class="card" data-c="burger"><img src="assets/hamburgueres.webp" alt="Hambúrgueres" loading="lazy"><div class="body"><h3>Hambúrgueres</h3><p>Do simples ao completo, com carne, queijo e o que você gosta por cima.</p><a class="link" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20pedir%20um%20hamb%C3%BArguer." target="_blank" rel="noopener">Pedir no WhatsApp</a></div></article>
-    <article class="card" data-c="dog"><img src="assets/cachorro.webp" alt="Cachorro-quente" loading="lazy"><div class="body"><h3>Cachorro-quente</h3><p>Pão macio, linguiça e bastante recheio.</p><a class="link" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20pedir%20um%20cachorro-quente." target="_blank" rel="noopener">Pedir no WhatsApp</a></div></article>
-    <article class="card" data-c="side"><img src="assets/porcoes.webp" alt="Porções de batata frita" loading="lazy"><div class="body"><h3>Porções</h3><p>Batata frita crocante, pura ou com cobertura, para dividir.</p><a class="link" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20pedir%20uma%20por%C3%A7%C3%A3o." target="_blank" rel="noopener">Pedir no WhatsApp</a></div></article>
-    <article class="card" data-c="combo"><img src="assets/combo.webp" alt="Combo de lanche" loading="lazy"><div class="body"><h3>Combos</h3><p>Lanche, batata e bebida para a família ou para os amigos.</p><a class="link" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20pedir%20um%20combo." target="_blank" rel="noopener">Pedir no WhatsApp</a></div></article>
-  </div>
-  <p class="note">Todo dia tem uma promoção diferente. Pergunte pelo WhatsApp. As fotos desta página são ilustrativas.</p>
+  <div id="menu"></div>
+  <p class="note">Valores iguais aos do nosso cardápio no iFood e sujeitos a alteração. As fotos do site são ilustrativas.</p>
+  <noscript><p class="note">Ative o JavaScript para ver o cardápio, ou peça pelo WhatsApp: 21 99469-0715.</p></noscript>
 </div></section>
 
 <section id="sobre"><div class="wrap about">
   <div class="num"><small>Na região desde</small>1995</div>
   <div>
     <div class="eyebrow">Nossa história</div>
-    <h2>Tradição de bairro, agora a um toque de distância</h2>
+    <h2 class="t">Tradição de bairro, agora a um toque de distância</h2>
     <p class="sub" style="margin-bottom:0">Há mais de 30 anos o Lena's serve o lanche do pessoal de Cordovil. É o mesmo capricho de sempre, e agora você pode pedir direto pelo WhatsApp.</p>
   </div>
 </div></section>
 
 <section id="pedir" class="soft"><div class="wrap">
   <div class="eyebrow">Como pedir</div>
-  <h2>Pedir é fácil</h2>
+  <h2 class="t">Pedir é fácil</h2>
   <p class="sub">Três passos e o lanche chega quentinho.</p>
   <div class="steps">
-    <div class="step"><h3>Chame no WhatsApp</h3><p>Toque no botão e mande uma mensagem para 21 99469-0715.</p></div>
-    <div class="step"><h3>Escolha seu lanche</h3><p>Peça o que quiser ou pergunte pela promoção do dia.</p></div>
+    <div class="step"><h3>Monte o pedido</h3><p>Escolha os lanches no cardápio e veja o total.</p></div>
+    <div class="step"><h3>Envie pelo WhatsApp</h3><p>O pedido já vai pronto para 21 99469-0715.</p></div>
     <div class="step"><h3>Receba em casa</h3><p>Ou venha buscar na Av. Meriti, 3963.</p></div>
   </div>
 </div></section>
 
-<div class="band"><div class="wrap">
-  <div><h2>Bateu a fome?</h2><p>Terça a domingo, das 18h às 00h. Chame no WhatsApp e faça seu pedido.</p></div>
-  <a class="btn onprimary" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">Fazer meu pedido</a>
-</div></div>
+<div class="band">
+  <svg class="art" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <g id="i-burger" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 26c0-12 10-20 22-20s22 8 22 20z"/><path d="M6 34h48M8 42c6 4 10-4 16 0s10-4 16 0 10-4 14 0"/><path d="M8 50h44c0 6-4 10-10 10H18c-6 0-10-4-10-10z"/>
+        <path d="M22 14v0M32 12v0M40 16v0" stroke-width="4"/>
+      </g>
+      <g id="i-fries" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 30l4 30h28l4-30z"/><path d="M18 30V10M26 30V4M34 30V8M42 30V12"/>
+      </g>
+      <g id="i-cup" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 18h32l-4 42H18z"/><path d="M10 18h40"/><path d="M36 18l8-14h8"/><path d="M20 34h20"/>
+      </g>
+      <g id="i-dog" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="22" width="52" height="18" rx="9"/><path d="M12 28c6 4 10-4 16 0s10-4 16 0"/>
+      </g>
+      <g id="i-star" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"><path d="M20 3l5 12 13 1-10 9 3 13-11-7-11 7 3-13L2 16l13-1z"/></g>
+    </defs>
+    <g opacity=".22">
+      <use href="#i-burger" x="30" y="24" transform="rotate(-12 60 54)"/>
+      <use href="#i-fries" x="190" y="150" transform="rotate(10 220 180)"/>
+      <use href="#i-cup" x="120" y="20" transform="rotate(8 150 50)"/>
+      <use href="#i-star" x="260" y="40"/>
+      <use href="#i-dog" x="320" y="170" transform="rotate(-8 350 190)"/>
+      <use href="#i-burger" x="420" y="150" transform="rotate(14 450 180)"/>
+      <use href="#i-cup" x="520" y="30" transform="rotate(-10 550 60)"/>
+      <use href="#i-star" x="610" y="190"/>
+      <use href="#i-fries" x="660" y="20" transform="rotate(-6 690 50)"/>
+      <use href="#i-dog" x="760" y="160" transform="rotate(10 790 180)"/>
+      <use href="#i-burger" x="860" y="30" transform="rotate(10 890 60)"/>
+      <use href="#i-star" x="960" y="170"/>
+      <use href="#i-cup" x="1010" y="120" transform="rotate(12 1040 150)"/>
+      <use href="#i-fries" x="1100" y="30" transform="rotate(8 1130 60)"/>
+      <use href="#i-burger" x="1110" y="170" transform="rotate(-10 1140 200)"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div><h2>Bateu a fome?</h2><p>Terça a domingo, das 18h às 00h. Monte o pedido e envie pelo WhatsApp.</p></div>
+    <a class="btn onprimary" href="#cardapio">Fazer meu pedido</a>
+  </div>
+</div>
 
 <section id="onde"><div class="wrap">
   <div class="eyebrow">Onde estamos</div>
-  <h2>Venha nos visitar</h2>
+  <h2 class="t">Venha nos visitar</h2>
   <p class="sub">Av. Meriti, 3963, em Cordovil, na Zona Norte do Rio.</p>
   <div class="where">
     <div class="info">
@@ -225,31 +319,148 @@ footer a{color:var(--primary-dark);text-decoration:none;font-weight:500}
   <div>Av. Meriti, 3963 · Cordovil · RJ · <a href="https://wa.me/5521994690715" target="_blank" rel="noopener">21 99469-0715</a></div>
 </div></footer>
 
-<a class="fab" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">
-  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.400 8.600 3.400 15.500c0 2.400.7 4.700 1.900 6.600L3.200 29l7.100-2.100A12.500 12.500 0 0016 28c7 0 12.600-5.600 12.600-12.500S23 3 16 3zm5.900 15.100c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.400 8.400 0 01-4.200-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.200-1.200 2.900s1.200 3.400 1.400 3.600c.2.200 2.400 3.700 5.800 5.100 2.100.9 2.900.9 3.900.8.600-.1 1.900-.8 2.200-1.500.3-.8.300-1.400.2-1.500-.1-.2-.3-.3-.6-.4z"/></svg>
-  Pedir agora
-</a>
+<button class="cartbar" id="cartbar" type="button"><span id="cb-count">0 itens</span><b id="cb-total">R$ 0,00</b><span>Ver pedido</span></button>
+
+<dialog id="modal" aria-labelledby="m-title">
+  <div class="m-head"><h3 id="m-title">Seu pedido</h3><button type="button" id="m-close" aria-label="Fechar">×</button></div>
+  <div class="m-body" id="m-body"></div>
+  <div class="m-foot">
+    <textarea id="obs" placeholder="Observações (por exemplo: sem alface, ponto da carne)" aria-label="Observações"></textarea>
+    <div class="total"><span>Total dos itens</span><span id="m-total">R$ 0,00</span></div>
+    <a class="btn primary" id="m-send" href="#" target="_blank" rel="noopener">Enviar pedido pelo WhatsApp</a>
+    <small>Você vai para o WhatsApp com o pedido pronto. Informe o endereço de entrega na conversa; a taxa de entrega é confirmada por lá.</small>
+  </div>
+</dialog>
 
 <script>
-// Tabs do cardápio
-document.querySelectorAll('.tabs button').forEach(function(b){
-  b.addEventListener('click',function(){
-    document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
-    var f=b.dataset.f;
-    document.querySelectorAll('.menu .card').forEach(function(c){c.hidden=(f!=='all'&&c.dataset.c!==f)});
+// ---------- Dados do cardápio (valores do iFood) ----------
+var CATS=['Hambúrgueres','Mistos','Promoções','Sobremesa'];
+var ITEMS=[
+ {c:'Promoções',n:'Big tudo + batata frita (P) + guaravita',d:'Big tudo, batata frita pequena e guaravita.',p:3700},
+ {c:'Promoções',n:'X burguer + refri lata',d:'X burguer com refrigerante em lata.',p:1700},
+ {c:'Hambúrgueres',n:'Big duplo',d:'Pão, 2 carnes, 2 queijos, presunto, 2 ovos, bacon, calabresa, milho, ervilha e alface.',p:2600,o:2800},
+ {c:'Hambúrgueres',n:'Big tudo',d:'Pão, carne, queijo, presunto, ovo, bacon, calabresa, milho, ervilha e alface.',p:2400},
+ {c:'Hambúrgueres',n:'Triplo x burguer',d:'Pão, 3 carnes, 3 queijos e alface.',p:2100,o:2200},
+ {c:'Hambúrgueres',n:'Duplo x burguer',d:'Pão, 2 carnes, 2 queijos e alface.',p:1900},
+ {c:'Hambúrgueres',n:'X picanha',d:'Pão, carne de picanha, queijo e alface.',p:2000},
+ {c:'Hambúrgueres',n:'X frango',d:'Pão, frango empanado, queijo e alface.',p:1900},
+ {c:'Hambúrgueres',n:'X egg bacon',d:'Pão, carne, queijo, ovo, bacon e alface.',p:1700,o:1800},
+ {c:'Hambúrgueres',n:'X egg calabresa',d:'Pão, carne, queijo, calabresa, ovo e alface.',p:1700},
+ {c:'Hambúrgueres',n:'X egg presunto',d:'Pão, carne, queijo, presunto, ovo e alface.',p:1700},
+ {c:'Hambúrgueres',n:'X bacon',d:'Pão, carne, queijo, bacon e alface.',p:1600},
+ {c:'Hambúrgueres',n:'X calabresa',d:'Pão, carne, queijo, calabresa e alface.',p:1500},
+ {c:'Hambúrgueres',n:'X presunto',d:'Pão, carne, queijo, presunto e alface.',p:1500},
+ {c:'Hambúrgueres',n:'X egg',d:'Pão, carne, queijo, ovo e alface.',p:1400,o:1500},
+ {c:'Hambúrgueres',n:'X burguer',d:'Pão, carne, queijo e alface.',p:1300},
+ {c:'Hambúrgueres',n:'Hambúrguer',d:'Pão, carne e alface.',p:1100},
+ {c:'Mistos',n:'Misto quente com ovo',d:'Pão, queijo, ovo e presunto.',p:1700},
+ {c:'Mistos',n:'Misto quente',d:'Pão, queijo e presunto.',p:1400},
+ {c:'Sobremesa',n:'Pudim (unidade)',d:'Pudim individual.',p:650}
+];
+ITEMS.forEach(function(it,i){it.id=i});
+var qty={}, filtro='Todos', busca='';
+var $=function(s){return document.querySelector(s)};
+var brl=function(c){return (c/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})};
+var esc=function(s){return s.replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})};
+
+// ---------- Abas ----------
+function renderTabs(){
+  var h=['Todos'].concat(CATS).map(function(c){return '<button role="tab" aria-selected="'+(c===filtro)+'" data-c="'+c+'">'+c+'</button>'}).join('');
+  $('#tabs').innerHTML=h;
+}
+$('#tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;filtro=b.dataset.c;renderTabs();renderMenu()});
+$('#busca').addEventListener('input',function(e){busca=e.target.value.trim().toLowerCase();renderMenu()});
+
+// ---------- Cardápio ----------
+function ctrl(it){
+  var q=qty[it.id]||0;
+  if(!q) return '<button class="btn primary sm" data-add="'+it.id+'">Adicionar</button>';
+  return '<div class="stepper"><button data-dec="'+it.id+'" aria-label="Diminuir">−</button><span>'+q+'</span><button data-add="'+it.id+'" aria-label="Aumentar">+</button></div>';
+}
+function renderMenu(){
+  var html='';
+  CATS.forEach(function(cat){
+    if(filtro!=='Todos'&&filtro!==cat) return;
+    var list=ITEMS.filter(function(it){return it.c===cat&&(!busca||(it.n+' '+it.d).toLowerCase().indexOf(busca)>-1)});
+    if(!list.length) return;
+    html+='<div class="cat"><h3>'+cat+'<small>'+list.length+(list.length>1?' itens':' item')+'</small></h3><div class="grid">'+
+      list.map(function(it){
+        return '<article class="dish"><div class="head"><h4>'+esc(it.n)+'</h4>'+(it.o?'<span class="badge promo">Oferta</span>':'')+'</div><p>'+esc(it.d)+'</p><div class="foot"><span class="price">'+brl(it.p)+(it.o?'<s>'+brl(it.o)+'</s>':'')+'</span><span data-ctrl="'+it.id+'">'+ctrl(it)+'</span></div></article>';
+      }).join('')+'</div></div>';
   });
+  $('#menu').innerHTML=html||'<div class="empty">Nenhum item encontrado. Tente outra busca.</div>';
+}
+function refreshItem(id){
+  var el=document.querySelector('[data-ctrl="'+id+'"]'); if(el) el.innerHTML=ctrl(ITEMS[id]);
+}
+function change(id,d){
+  qty[id]=Math.max(0,(qty[id]||0)+d); if(!qty[id]) delete qty[id];
+  refreshItem(id); updateBar(); if($('#modal').open) renderModal();
+}
+document.addEventListener('click',function(e){
+  var a=e.target.closest('[data-add]'),d=e.target.closest('[data-dec]');
+  if(a) change(+a.dataset.add,1); else if(d) change(+d.dataset.dec,-1);
 });
-// Badge de funcionamento (terça a domingo, 18h às 00h, horário de Brasília)
+
+// ---------- Pedido ----------
+function resumo(){
+  var n=0,t=0; Object.keys(qty).forEach(function(k){n+=qty[k];t+=qty[k]*ITEMS[k].p}); return {n:n,t:t};
+}
+function updateBar(){
+  var r=resumo(), b=$('#cartbar');
+  $('#cb-count').textContent=r.n+(r.n===1?' item':' itens'); $('#cb-total').textContent=brl(r.t);
+  b.classList.toggle('show',r.n>0);
+}
+function renderModal(){
+  var ids=Object.keys(qty), r=resumo();
+  $('#m-body').innerHTML=ids.length?ids.map(function(k){var it=ITEMS[k];
+    return '<div class="line"><div><b>'+esc(it.n)+'</b><small>'+brl(it.p)+' cada</small></div><div class="stepper"><button data-dec="'+k+'" aria-label="Diminuir">−</button><span>'+qty[k]+'</span><button data-add="'+k+'" aria-label="Aumentar">+</button></div></div>'}).join(''):'<div class="empty" style="margin:16px 0">Seu pedido está vazio.</div>';
+  $('#m-total').textContent=brl(r.t);
+  var msg='Olá! Quero fazer um pedido no Lena\'s Lanches:\n\n'+ids.map(function(k){return qty[k]+'x '+ITEMS[k].n+' ('+brl(ITEMS[k].p*qty[k])+')'}).join('\n')+'\n\nTotal dos itens: '+brl(r.t);
+  var obs=$('#obs').value.trim(); if(obs) msg+='\nObservações: '+obs;
+  msg+='\n\nVou informar o endereço de entrega por aqui.';
+  var s=$('#m-send'); s.href='https://wa.me/5521994690715?text='+encodeURIComponent(msg);
+  s.style.pointerEvents=ids.length?'auto':'none'; s.style.opacity=ids.length?1:.5;
+  if(!ids.length && $('#modal').open) $('#modal').close();
+}
+$('#cartbar').addEventListener('click',function(){renderModal();$('#modal').showModal()});
+$('#m-close').addEventListener('click',function(){$('#modal').close()});
+$('#obs').addEventListener('input',renderModal);
+$('#modal').addEventListener('click',function(e){if(e.target===this)this.close()});
+
+// ---------- Slides ----------
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')), dots=$('.dots'), cur=0, timer;
+  slides.forEach(function(_,i){var b=document.createElement('button');b.setAttribute('aria-label','Slide '+(i+1));b.addEventListener('click',function(){go(i,true)});dots.appendChild(b)});
+  function go(i,user){
+    cur=(i+slides.length)%slides.length;
+    slides.forEach(function(s,k){s.classList.toggle('on',k===cur)});
+    [].forEach.call(dots.children,function(b,k){b.setAttribute('aria-current',k===cur)});
+    if(user) restart();
+  }
+  function restart(){clearInterval(timer);timer=setInterval(function(){go(cur+1)},6500)}
+  $('.arrow.prev').addEventListener('click',function(){go(cur-1,true)});
+  $('.arrow.next').addEventListener('click',function(){go(cur+1,true)});
+  var sec=document.querySelector('.slider');
+  sec.addEventListener('mouseenter',function(){clearInterval(timer)});sec.addEventListener('mouseleave',restart);
+  var x0=null;sec.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  sec.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)go(cur+(dx<0?1:-1),true);x0=null});
+  go(0);restart();
+  document.querySelectorAll('[data-goto]').forEach(function(a){a.addEventListener('click',function(){filtro=a.dataset.goto;renderTabs();renderMenu()})});
+})();
+
+// ---------- Selo de funcionamento (terça a domingo, 18h às 00h, Brasília) ----------
 (function(){
   try{
     var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'numeric',hour12:false}).formatToParts(new Date());
     var d=p.find(function(x){return x.type==='weekday'}).value, h=parseInt(p.find(function(x){return x.type==='hour'}).value,10)%24;
-    var open=d!=='Mon'&&h>=18;
-    var el=document.getElementById('status');
+    var open=d!=='Mon'&&h>=18, el=document.getElementById('status');
     el.className='badge '+(open?'open':'closed');
     el.lastElementChild.textContent=open?'Aberto agora, até as 00h':(d==='Mon'?'Fechado hoje, abrimos terça às 18h':'Abrimos hoje às 18h');
   }catch(e){}
 })();
+
+renderTabs();renderMenu();updateBar();
 </script>
 </body>
 </html>
