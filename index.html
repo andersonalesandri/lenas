@@ -65,7 +65,7 @@ header.nav .btn{height:40px;padding:0 16px;font-size:15px}
 .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s;display:flex;align-items:center;background:var(--bg)}
 .slide.on{opacity:1;visibility:visible;position:relative;min-height:640px}
 .slide:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(255,170,60,.35),transparent 55%)}
-.slide .photo{position:absolute;top:0;bottom:0;right:max(2%,calc((100% - 1120px)/2));height:100%;width:auto;max-width:60%;object-fit:contain;transform:scale(1.38);transform-origin:center center;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%)}
+.slide .photo{position:absolute;top:0;bottom:0;right:max(2%,calc((100% - 1120px)/2));height:100%;width:auto;max-width:60%;object-fit:contain;transform:scale(1.3);transform-origin:center center;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%)}
 .slide .wrap{position:relative;z-index:2;width:100%;padding-top:72px;padding-bottom:96px}
 .slide .txt{max-width:520px}
 .slide .badge{margin-bottom:18px}
@@ -182,21 +182,25 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 .credit a{font-weight:500;text-decoration:underline}
 @media(max-width:860px){.band{padding:36px 0 48px}.band img.kombi{position:relative;right:auto;top:auto;transform:none;width:calc(100% - 48px);max-width:420px;margin:0 auto 28px;display:block}.band .wrap{min-height:0}}
 
-.slide.combo{background:linear-gradient(90deg,#e25200 0%,#c24200 28%,#5a1d00 52%,#140803 78%,#0b0502 100%)}
+.slide.combo{background:linear-gradient(90deg,#e25200 0%,#c24200 26%,#5a1d00 46%,#140803 64%,#0b0502 100%)}
 .slide.combo:before{background:radial-gradient(circle at 24% 30%,rgba(255,170,60,.28),transparent 55%)}
-.slide.combo .photo{width:66%;max-width:none;right:0;left:auto;height:100%;object-fit:cover;object-position:center 55%;transform:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%);mask-image:linear-gradient(90deg,transparent 0,#000 34%)}
-@media(max-width:860px){.slide.combo{background:linear-gradient(180deg,#0b0502 0%,#140803 42%,#7a2a00 62%,#e25200 100%)}.slide.combo .photo{width:100%;height:56%;top:0;bottom:auto;object-position:center 55%;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 62%,transparent 100%)}}
-@media(max-width:1100px){.slide .photo{transform:scale(1.15)}}
+.slide.combo .photo{width:auto;height:100%;max-width:min(62%,880px);right:0;left:auto;object-fit:contain;transform:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}
+/* telas medias e celular: foto no topo, texto embaixo (evita texto sobre a foto e setas sobre o texto) */
+@media(max-width:1100px){
+  .slides,.slide.on{min-height:660px}
+  .slide{align-items:flex-end}
+  .slide .photo{right:0;left:0;margin:0 auto;max-width:100%;height:56%;transform:scale(1.22);transform-origin:center 30%;bottom:auto;top:0;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%),linear-gradient(180deg,#000 70%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%),linear-gradient(180deg,#000 70%,transparent 100%);mask-composite:intersect}
+  .slide.combo{background:linear-gradient(180deg,#0b0502 0%,#140803 42%,#7a2a00 62%,#e25200 100%)}
+  .slide.combo .photo{width:100%;max-width:100%;height:56%;transform:none;object-fit:contain;object-position:center 40%;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 62%,transparent 100%)}
+  .slide .wrap{padding-top:0;padding-bottom:84px}
+  .slide .txt{max-width:none}
+  .arrow{display:none}
+}
 @media(max-width:860px){
   .about,.where{grid-template-columns:1fr;gap:28px}
   header.nav nav{display:none}header.nav .btn{margin-left:auto}
   section{padding:56px 0}
   .slides,.slide.on{min-height:640px}
-  .slide{align-items:flex-end}
-  .slide .photo{right:0;left:0;margin:0 auto;max-width:100%;height:56%;transform:scale(1.28);transform-origin:center 30%;bottom:auto;top:0;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%),linear-gradient(180deg,#000 70%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%),linear-gradient(180deg,#000 70%,transparent 100%);mask-composite:intersect}
-  .slide .wrap{padding-top:0;padding-bottom:84px}
-  .slide .txt{max-width:none}
-  .arrow{display:none}
   .grid{grid-template-columns:1fr}
 }
 </style>
@@ -228,7 +232,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
       <div class="wrap"><div class="txt">
         <span class="badge promo"><i style="background:var(--primary)"></i>Do simples ao completo</span>
         <h2>Do hambúrguer simples ao Big tudo</h2>
-        <p class="lead">Mais de 15 opções de lanche, de R$ 11 a R$ 26. Escolha o seu e monte o pedido aqui no site.</p>
+        <p class="lead">15 opções de hambúrguer, de R$ 11 a R$ 26. Escolha o seu e monte o pedido aqui no site.</p>
         <div class="actions"><a class="btn primary" href="#cardapio">Montar meu pedido</a></div>
       </div></div>
     </div>
@@ -326,7 +330,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
       <use href="#i-burger" x="1110" y="170" transform="rotate(-10 1140 200)"/>
     </g>
   </svg>
-  <img class="kombi" src="assets/kombi.webp" alt="Kombi laranja estacionada em uma rua ensolarada" loading="lazy">
+  <img class="kombi" src="assets/combo-faixa.webp" alt="Combo com hambúrguer, batata frita e refrigerante" loading="lazy">
   <div class="wrap">
     <div class="txt"><h2>Bateu a fome?</h2><p>Terça a domingo, das 18h às 00h. Monte o pedido e envie pelo WhatsApp.</p><a class="btn onprimary" href="#cardapio" style="margin-top:22px">Fazer meu pedido</a></div>
   </div>
