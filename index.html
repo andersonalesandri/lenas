@@ -181,6 +181,11 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 .credit{font-size:12px;opacity:.85;margin-top:14px;width:100%}
 .credit a{font-weight:500;text-decoration:underline}
 @media(max-width:860px){.band{padding:36px 0 48px}.band img.kombi{position:relative;right:auto;top:auto;transform:none;width:calc(100% - 48px);max-width:420px;margin:0 auto 28px;display:block}.band .wrap{min-height:0}}
+
+.slide.combo{background:linear-gradient(90deg,#e25200 0%,#c24200 28%,#5a1d00 52%,#140803 78%,#0b0502 100%)}
+.slide.combo:before{background:radial-gradient(circle at 24% 30%,rgba(255,170,60,.28),transparent 55%)}
+.slide.combo .photo{width:66%;max-width:none;right:0;left:auto;height:100%;object-fit:cover;object-position:center 55%;transform:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%);mask-image:linear-gradient(90deg,transparent 0,#000 34%)}
+@media(max-width:860px){.slide.combo{background:linear-gradient(180deg,#0b0502 0%,#140803 42%,#7a2a00 62%,#e25200 100%)}.slide.combo .photo{width:100%;height:56%;top:0;bottom:auto;object-position:center 55%;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 62%,transparent 100%)}}
 @media(max-width:1100px){.slide .photo{transform:scale(1.15)}}
 @media(max-width:860px){
   .about,.where{grid-template-columns:1fr;gap:28px}
@@ -227,8 +232,8 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
         <div class="actions"><a class="btn primary" href="#cardapio">Montar meu pedido</a></div>
       </div></div>
     </div>
-    <div class="slide" style="--bg:#e25200">
-      <img class="photo" src="assets/slide3.webp" alt="X bacon com queijo derretido" loading="lazy">
+    <div class="slide combo" style="--bg:#e25200">
+      <img class="photo" src="assets/slide3.webp" alt="Hambúrguer com batata frita e copo de refrigerante" loading="lazy">
       <div class="wrap"><div class="txt">
         <span class="badge promo"><i style="background:var(--primary)"></i>Promoções</span>
         <h2>Big tudo + batata + guaravita por R$ 37</h2>
