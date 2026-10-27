@@ -143,7 +143,7 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
 .step h3{font-size:18px;font-weight:700;margin-bottom:4px}
 .step p{color:var(--fg-muted);font-size:15px}
 /* Faixa laranja com ilustração */
-.band{position:relative;overflow:hidden;background:var(--primary);color:#fff;padding:64px 0}
+.band{position:relative;overflow:hidden;background:var(--primary);color:#fff;padding:72px 0}
 .band svg.art{position:absolute;inset:0;width:100%;height:100%}
 .band .wrap{position:relative;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .band h2{color:#fff;font-size:clamp(28px,4.5vw,40px);letter-spacing:-.025em;max-width:560px}
@@ -175,6 +175,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 .about .photo .num small{color:#fff;opacity:.9;margin-bottom:0}
 .about .photo .num{color:var(--primary)}
 .band .wrap{min-height:220px}
+.band .hero-art{position:absolute;right:max(16px,calc((100% - 1120px)/2 + 8px));top:50%;transform:translateY(-50%);height:94%;width:auto;pointer-events:none;filter:drop-shadow(0 14px 18px rgba(120,40,0,.3))}
 .band img.cut{position:absolute;right:max(24px,calc((100% - 1120px)/2 + 24px));top:-26%;height:150%;width:auto;pointer-events:none;filter:drop-shadow(0 18px 24px rgba(120,40,0,.35))}
 .band .wrap>div,.band .wrap>a{position:relative;z-index:2}
 .band .txt{max-width:520px}
@@ -185,7 +186,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 #onde .map{border-color:rgba(255,255,255,.55)}
 .credit{font-size:12px;opacity:.85;margin-top:14px;width:100%}
 .credit a{font-weight:500;text-decoration:underline}
-@media(max-width:860px){.band img.cut{height:110%;top:auto;bottom:-12%;right:-6%;opacity:.28}}
+@media(max-width:860px){.band .hero-art{height:70%;right:-30px;top:auto;bottom:10px;transform:none;opacity:.3}}
 @media(max-width:1100px){.slide .photo{transform:scale(1.15)}}
 @media(max-width:860px){
   .about,.where{grid-template-columns:1fr;gap:28px}
@@ -281,7 +282,6 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 </div></section>
 
 <div class="band">
-  <img class="cut" src="assets/burgers-recorte.png" alt="" loading="lazy">
   <svg class="art" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <defs>
       <g id="i-burger" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -299,7 +299,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
       </g>
       <g id="i-star" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"><path d="M20 3l5 12 13 1-10 9 3 13-11-7-11 7 3-13L2 16l13-1z"/></g>
     </defs>
-    <g opacity=".22">
+    <g opacity=".14">
       <use href="#i-burger" x="30" y="24" transform="rotate(-12 60 54)"/>
       <use href="#i-fries" x="190" y="150" transform="rotate(10 220 180)"/>
       <use href="#i-cup" x="120" y="20" transform="rotate(8 150 50)"/>
@@ -316,6 +316,44 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
       <use href="#i-fries" x="1100" y="30" transform="rotate(8 1130 60)"/>
       <use href="#i-burger" x="1110" y="170" transform="rotate(-10 1140 200)"/>
     </g>
+  </svg>
+  <svg class="hero-art" viewBox="0 0 520 330" aria-hidden="true">
+    <!-- sol / raios -->
+    <circle cx="270" cy="170" r="150" fill="#fff" opacity=".10"/>
+    <circle cx="270" cy="170" r="104" fill="#fff" opacity=".12"/>
+    <!-- batata -->
+    <g transform="translate(28 118) rotate(-8 50 90)">
+      <rect x="14" y="8" width="16" height="92" rx="5" fill="#FFD35C"/><rect x="34" y="0" width="16" height="100" rx="5" fill="#F2B705"/>
+      <rect x="54" y="10" width="16" height="90" rx="5" fill="#FFD35C"/><rect x="74" y="20" width="16" height="80" rx="5" fill="#F2B705"/>
+      <path d="M2 92h100l-12 112H14z" fill="#B71C2B"/><path d="M2 92h100l-3 22H5z" fill="#7d1019"/>
+      <path d="M34 130h36M33 150h38M32 170h40" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+    </g>
+    <!-- hambúrguer -->
+    <g transform="translate(150 54)">
+      <ellipse cx="120" cy="212" rx="128" ry="14" fill="#7d1019" opacity=".28"/>
+      <path d="M10 92C10 40 62 8 120 8s110 32 110 84z" fill="#F2B705"/>
+      <path d="M26 82C30 50 66 24 112 20c-30 12-56 32-62 62z" fill="#fff" opacity=".28"/>
+      <g fill="#fff"><ellipse cx="82" cy="42" rx="9" ry="4.5" transform="rotate(-20 82 42)"/><ellipse cx="128" cy="30" rx="9" ry="4.5"/><ellipse cx="168" cy="46" rx="9" ry="4.5" transform="rotate(22 168 46)"/><ellipse cx="108" cy="62" rx="9" ry="4.5" transform="rotate(8 108 62)"/><ellipse cx="152" cy="72" rx="9" ry="4.5" transform="rotate(-10 152 72)"/></g>
+      <path d="M2 96c14 16 28-10 44 4s30-12 46 4 30-12 46 4 30-12 46 4 30-12 44 4 14 6 16 0v22H2z" fill="#B7E36A"/>
+      <path d="M2 96c14 16 28-10 44 4s30-12 46 4 30-12 46 4 30-12 46 4 30-12 44 4 14 6 16 0" fill="none" stroke="#7BB82D" stroke-width="3"/>
+      <rect x="6" y="118" width="228" height="12" rx="6" fill="#E8412A"/>
+      <path d="M6 126h226l-20 30-24-14-24 22-24-18-24 18-24-20-24 16-24-12z" fill="#FFC531"/>
+      <rect x="4" y="128" width="232" height="42" rx="21" fill="#7d1019"/>
+      <path d="M28 142c20 6 36-4 54 2" stroke="#B71C2B" stroke-width="5" stroke-linecap="round" fill="none" opacity=".7"/>
+      <path d="M8 176h224c0 24-16 38-40 38H48c-24 0-40-14-40-38z" fill="#F2B705"/>
+      <path d="M8 176h224c0 6-1 11-3 16H11c-2-5-3-10-3-16z" fill="#E09F00"/>
+    </g>
+    <!-- copo -->
+    <g transform="translate(402 92) rotate(7 40 90)">
+      <path d="M44 40l40-34h22" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <path d="M8 44h80l-10 150H18z" fill="#fff"/><path d="M8 44h80l-3 22H11z" fill="#B71C2B"/>
+      <path d="M14 84h68l-6 64H20z" fill="#F2B705"/>
+      <circle cx="48" cy="116" r="13" fill="#fff" opacity=".9"/><path d="M42 116l4 5 8-9" stroke="#B71C2B" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="0" y="36" width="96" height="12" rx="6" fill="#fff"/>
+    </g>
+    <!-- faíscas e estrelas -->
+    <g fill="#fff"><path d="M70 40l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/><path d="M455 40l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" opacity=".9"/><path d="M360 12l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" opacity=".8"/><path d="M500 220l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" opacity=".8"/></g>
+    <g stroke="#FFD35C" stroke-width="5" stroke-linecap="round"><path d="M130 24l-6 -14M420 30l8 -14M236 6l0 -16"/></g>
   </svg>
   <div class="wrap">
     <div class="txt"><h2>Bateu a fome?</h2><p>Terça a domingo, das 18h às 00h. Monte o pedido e envie pelo WhatsApp.</p><a class="btn onprimary" href="#cardapio" style="margin-top:22px">Fazer meu pedido</a></div>
