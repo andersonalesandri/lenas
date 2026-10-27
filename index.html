@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lena's Lanches | Hamburgueria em Cordovil, Rio de Janeiro</title>
+<meta name="description" content="Lena's Lanches, hamburgueria em Cordovil desde 1995. Hambúrgueres, cachorro-quente e porções. Peça pelo WhatsApp: 21 99469-0715. Terça a domingo, das 18h às 00h.">
+<meta name="theme-color" content="#ff7a00">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lena's Lanches | Hamburgueria em Cordovil">
+<meta property="og:description" content="Lanche de verdade desde 1995. Peça pelo WhatsApp: 21 99469-0715.">
+<meta property="og:image" content="assets/hamburgueres.webp">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Lena's Lanches","image":"assets/hamburgueres.webp","telephone":"+55 21 99469-0715","servesCuisine":"Hambúrgueres, lanches","foundingDate":"1995",
+"address":{"@type":"PostalAddress","streetAddress":"Av. Meriti, 3963","addressLocality":"Cordovil, Rio de Janeiro","addressRegion":"RJ","addressCountry":"BR"},
+"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"23:59"}],
+"sameAs":["https://www.instagram.com/lenaslanchesoficial/"]}
+</script>
+<style>
+:root{
+  --primary:#ff7a00;--primary-dark:#e06b00;--primary-soft:#fff2e5;
+  --canvas:#ffffff;--surface:#ffffff;--fg:#0a0a0a;--fg-muted:#5a5a5a;--border:#e5e5e5;
+  --success:#22c55e;--warning:#f59e0b;
+  --r-card:8px;--r-input:6px;--r-button:6px;--r-pill:9999px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Geist',system-ui,-apple-system,Segoe UI,sans-serif;font-weight:400;color:var(--fg);background:var(--canvas);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.mono{font-family:'Geist Mono',ui-monospace,monospace}
+/* Button */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 24px;border-radius:var(--r-button);border:1px solid transparent;font:500 16px 'Geist',sans-serif;text-decoration:none;cursor:pointer;transition:background .15s,transform .15s}
+.btn.primary{background:var(--primary);color:#fff}
+.btn.primary:hover{background:var(--primary-dark)}
+.btn.ghost{background:#fff;color:var(--fg);border-color:var(--border)}
+.btn.ghost:hover{border-color:var(--fg)}
+.btn.onprimary{background:#fff;color:var(--primary-dark)}
+.btn svg{width:20px;height:20px;fill:currentColor}
+/* Badge */
+.badge{display:inline-flex;align-items:center;gap:8px;height:28px;padding:0 12px;border-radius:var(--r-pill);background:var(--primary-soft);color:var(--primary-dark);font-size:13px;font-weight:500}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--fg-muted)}
+.badge.open{background:#e9f9ef;color:#15803d}.badge.open i{background:var(--success)}
+.badge.closed{background:#f4f4f4;color:var(--fg-muted)}
+/* Header */
+header.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+header.nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.avatar{width:40px;height:40px;border-radius:50%;object-fit:cover}
+header.nav .name{font-weight:700;letter-spacing:-.01em}
+header.nav nav{display:flex;gap:4px;margin-left:auto}
+header.nav nav a{text-decoration:none;color:var(--fg-muted);font-size:15px;font-weight:500;padding:8px 12px;border-radius:var(--r-button)}
+header.nav nav a:hover{color:var(--fg);background:#f5f5f5}
+header.nav .btn{height:40px;padding:0 16px;font-size:15px}
+/* Hero */
+.hero{padding:64px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(36px,6vw,60px);line-height:1.04;letter-spacing:-.03em;font-weight:700;margin:16px 0 16px}
+.hero h1 span{color:var(--primary)}
+.hero p.lead{font-size:18px;color:var(--fg-muted);max-width:480px;margin-bottom:28px}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero .facts{display:flex;gap:28px;margin-top:36px;padding-top:24px;border-top:1px solid var(--border)}
+.hero .facts b{display:block;font-size:24px;letter-spacing:-.02em}
+.hero .facts span{font-size:14px;color:var(--fg-muted)}
+.hero .pic img{width:100%;border-radius:var(--r-card);border:1px solid var(--border);aspect-ratio:4/5;object-fit:cover}
+section{padding:80px 0}
+section.soft{background:#fafafa;border-block:1px solid var(--border)}
+.eyebrow{font-family:'Geist Mono',monospace;font-size:13px;color:var(--primary-dark);font-weight:500;margin-bottom:8px}
+h2{font-size:clamp(28px,4.5vw,40px);line-height:1.1;letter-spacing:-.025em;font-weight:700}
+.sub{color:var(--fg-muted);font-size:18px;max-width:620px;margin:12px 0 32px}
+/* Tabs */
+.tabs{display:inline-flex;gap:4px;padding:4px;background:#f2f2f2;border-radius:var(--r-button);margin-bottom:28px;flex-wrap:wrap}
+.tabs button{border:0;background:transparent;font:500 15px 'Geist',sans-serif;color:var(--fg-muted);padding:9px 16px;border-radius:var(--r-input);cursor:pointer}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--fg);box-shadow:0 1px 2px rgba(0,0,0,.1)}
+/* Card */
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column}
+.card img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.card .body{padding:18px 20px 22px}
+.card h3{font-size:19px;letter-spacing:-.01em;font-weight:700}
+.card p{font-size:15px;color:var(--fg-muted);margin-top:4px}
+.card .link{display:inline-block;margin-top:14px;font-size:15px;font-weight:500;color:var(--primary-dark);text-decoration:none}
+.card .link:hover{text-decoration:underline}
+.menu .card[hidden]{display:none}
+.note{font-size:14px;color:var(--fg-muted);margin-top:24px}
+/* Sobre */
+.about{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center}
+.about .num{font-size:clamp(80px,15vw,150px);font-weight:700;letter-spacing:-.05em;line-height:.9;color:var(--primary)}
+.about .num small{display:block;font-family:'Geist Mono',monospace;font-size:16px;letter-spacing:0;color:var(--fg-muted);font-weight:500;margin-bottom:6px}
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;counter-reset:s}
+.step{border:1px solid var(--border);border-radius:var(--r-card);padding:24px;background:#fff;counter-increment:s}
+.step:before{content:counter(s);display:flex;width:36px;height:36px;border-radius:var(--r-pill);background:var(--primary-soft);color:var(--primary-dark);font-weight:700;align-items:center;justify-content:center;margin-bottom:14px}
+.step h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.step p{color:var(--fg-muted);font-size:15px}
+/* CTA band */
+.band{background:var(--primary);color:#fff;padding:56px 0}
+.band .wrap{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.band h2{color:#fff;max-width:560px}
+.band p{opacity:.95;margin-top:8px}
+/* Onde */
+.where{display:grid;grid-template-columns:1fr 1.1fr;gap:24px}
+.info{border:1px solid var(--border);border-radius:var(--r-card);padding:28px;background:#fff}
+.info h3{font-size:13px;font-family:'Geist Mono',monospace;color:var(--fg-muted);font-weight:500;text-transform:none;margin:0 0 6px}
+.info p{margin-bottom:20px}
+.info p:last-child{margin-bottom:0}
+.hours{list-style:none;margin-bottom:20px}
+.hours li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+.hours li:last-child{border-bottom:0}
+.info a{color:var(--primary-dark);font-weight:500}
+.map{border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;min-height:320px}
+.map iframe{width:100%;height:100%;min-height:320px;border:0}
+footer{border-top:1px solid var(--border);padding:36px 0;color:var(--fg-muted);font-size:14px}
+footer .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+footer .brand{display:flex;gap:12px;align-items:center;color:var(--fg);font-weight:500}
+footer a{color:var(--primary-dark);text-decoration:none;font-weight:500}
+.fab{position:fixed;right:18px;bottom:18px;z-index:40;background:var(--primary);color:#fff;height:52px;padding:0 20px;border-radius:var(--r-pill);display:none;align-items:center;gap:10px;font-weight:500;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.fab svg{width:22px;height:22px;fill:#fff}
+.hero .wrap>*,.about>*,.where>*{min-width:0}
+@media(max-width:860px){
+  .hero{padding:36px 0 48px}.hero .wrap,.about,.where{grid-template-columns:1fr;gap:28px}
+  .hero .pic{order:-1}.hero .pic img{aspect-ratio:1/1}
+  header.nav nav{display:none}header.nav .btn{margin-left:auto}
+  .fab{display:inline-flex}section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="wrap">
+  <img class="avatar" src="assets/logo.png" alt="Lena's Hamburgueria">
+  <span class="name">Lena's Lanches</span>
+  <nav aria-label="Seções"><a href="#cardapio">Cardápio</a><a href="#sobre">Desde 1995</a><a href="#pedir">Como pedir</a><a href="#onde">Onde estamos</a></nav>
+  <a class="btn primary" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">Pedir agora</a>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div>
+    <span id="status" class="badge"><i></i><span>Terça a domingo, das 18h às 00h</span></span>
+    <h1>Lanche de verdade, <span>desde 1995</span> em Cordovil</h1>
+    <p class="lead">Hambúrguer, cachorro-quente e porção saindo da chapa na hora, do jeito que o bairro conhece há mais de 30 anos.</p>
+    <div class="actions">
+      <a class="btn primary" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.400 8.600 3.400 15.500c0 2.400.7 4.700 1.900 6.600L3.200 29l7.100-2.100A12.500 12.500 0 0016 28c7 0 12.600-5.600 12.600-12.500S23 3 16 3zm5.900 15.100c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.400 8.400 0 01-4.200-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.200-1.200 2.900s1.200 3.400 1.400 3.600c.2.200 2.400 3.700 5.800 5.100 2.100.9 2.900.9 3.900.8.600-.1 1.900-.8 2.200-1.500.3-.8.300-1.400.2-1.500-.1-.2-.3-.3-.6-.4z"/></svg>
+        Pedir pelo WhatsApp</a>
+      <a class="btn ghost" href="#cardapio">Ver cardápio</a>
+    </div>
+    <div class="facts">
+      <div><b>1995</b><span>Na região desde</span></div>
+      <div><b>6 dias</b><span>Por semana</span></div>
+      <div><b class="mono" style="font-size:20px">18h–00h</b><span>Horário</span></div>
+    </div>
+  </div>
+  <div class="pic"><img src="assets/hamburgueres.webp" alt="Hambúrgueres da Lena's Lanches" fetchpriority="high"></div>
+</div></section>
+
+<section id="cardapio" class="soft"><div class="wrap">
+  <div class="eyebrow">Cardápio</div>
+  <h2>O que você pede por aqui</h2>
+  <p class="sub">Lanches, porções e combos. Sabores e valores do dia você confere direto no WhatsApp.</p>
+  <div class="tabs" role="tablist" aria-label="Categorias">
+    <button role="tab" aria-selected="true" data-f="all">Todos</button>
+    <button role="tab" aria-selected="false" data-f="burger">Hambúrgueres</button>
+    <button role="tab" aria-selected="false" data-f="dog">Cachorro-quente</button>
+    <button role="tab" aria-selected="false" data-f="side">Porções</button>
+    <button role="tab" aria-selected="false" data-f="combo">Combos</button>
+  </div>
+  <div class="menu">
+    <article class="card" data-c="burger"><img src="assets/hamburgueres.webp" alt="Hambúrgueres" loading="lazy"><div class="body"><h3>Hambúrgueres</h3><p>Do simples ao completo, com carne, queijo e o que você gosta por cima.</p><a class="link" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20pedir%20um%20hamb%C3%BArguer." target="_blank" rel="noopener">Pedir no WhatsApp</a></div></article>
+    <article class="card" data-c="dog"><img src="assets/cachorro.webp" alt="Cachorro-quente" loading="lazy"><div class="body"><h3>Cachorro-quente</h3><p>Pão macio, linguiça e bastante recheio.</p><a class="link" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20pedir%20um%20cachorro-quente." target="_blank" rel="noopener">Pedir no WhatsApp</a></div></article>
+    <article class="card" data-c="side"><img src="assets/porcoes.webp" alt="Porções de batata frita" loading="lazy"><div class="body"><h3>Porções</h3><p>Batata frita crocante, pura ou com cobertura, para dividir.</p><a class="link" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20pedir%20uma%20por%C3%A7%C3%A3o." target="_blank" rel="noopener">Pedir no WhatsApp</a></div></article>
+    <article class="card" data-c="combo"><img src="assets/combo.webp" alt="Combo de lanche" loading="lazy"><div class="body"><h3>Combos</h3><p>Lanche, batata e bebida para a família ou para os amigos.</p><a class="link" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20pedir%20um%20combo." target="_blank" rel="noopener">Pedir no WhatsApp</a></div></article>
+  </div>
+  <p class="note">Todo dia tem uma promoção diferente. Pergunte pelo WhatsApp. As fotos desta página são ilustrativas.</p>
+</div></section>
+
+<section id="sobre"><div class="wrap about">
+  <div class="num"><small>Na região desde</small>1995</div>
+  <div>
+    <div class="eyebrow">Nossa história</div>
+    <h2>Tradição de bairro, agora a um toque de distância</h2>
+    <p class="sub" style="margin-bottom:0">Há mais de 30 anos o Lena's serve o lanche do pessoal de Cordovil. É o mesmo capricho de sempre, e agora você pode pedir direto pelo WhatsApp.</p>
+  </div>
+</div></section>
+
+<section id="pedir" class="soft"><div class="wrap">
+  <div class="eyebrow">Como pedir</div>
+  <h2>Pedir é fácil</h2>
+  <p class="sub">Três passos e o lanche chega quentinho.</p>
+  <div class="steps">
+    <div class="step"><h3>Chame no WhatsApp</h3><p>Toque no botão e mande uma mensagem para 21 99469-0715.</p></div>
+    <div class="step"><h3>Escolha seu lanche</h3><p>Peça o que quiser ou pergunte pela promoção do dia.</p></div>
+    <div class="step"><h3>Receba em casa</h3><p>Ou venha buscar na Av. Meriti, 3963.</p></div>
+  </div>
+</div></section>
+
+<div class="band"><div class="wrap">
+  <div><h2>Bateu a fome?</h2><p>Terça a domingo, das 18h às 00h. Chame no WhatsApp e faça seu pedido.</p></div>
+  <a class="btn onprimary" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">Fazer meu pedido</a>
+</div></div>
+
+<section id="onde"><div class="wrap">
+  <div class="eyebrow">Onde estamos</div>
+  <h2>Venha nos visitar</h2>
+  <p class="sub">Av. Meriti, 3963, em Cordovil, na Zona Norte do Rio.</p>
+  <div class="where">
+    <div class="info">
+      <h3>Endereço</h3><p>Av. Meriti, 3963<br>Cordovil, Rio de Janeiro, RJ</p>
+      <h3>Horário</h3>
+      <ul class="hours"><li><span>Terça a domingo</span><b class="mono">18h–00h</b></li><li><span>Segunda</span><span style="color:var(--fg-muted)">Fechado</span></li></ul>
+      <h3>Contato</h3><p>WhatsApp <a href="https://wa.me/5521994690715" target="_blank" rel="noopener">21 99469-0715</a><br>Instagram <a href="https://www.instagram.com/lenaslanchesoficial/" target="_blank" rel="noopener">@lenaslanchesoficial</a></p>
+    </div>
+    <div class="map"><iframe title="Mapa do Lena's Lanches" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Meriti,+3963,+Cordovil,+Rio+de+Janeiro&output=embed"></iframe></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="brand"><img class="avatar" src="assets/logo.png" alt="">Lena's Lanches · Hamburgueria desde 1995</div>
+  <div>Av. Meriti, 3963 · Cordovil · RJ · <a href="https://wa.me/5521994690715" target="_blank" rel="noopener">21 99469-0715</a></div>
+</div></footer>
+
+<a class="fab" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.400 8.600 3.400 15.500c0 2.400.7 4.700 1.900 6.600L3.200 29l7.100-2.100A12.500 12.500 0 0016 28c7 0 12.600-5.600 12.600-12.500S23 3 16 3zm5.900 15.100c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.400 8.400 0 01-4.200-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.200-1.200 2.900s1.200 3.400 1.400 3.600c.2.200 2.400 3.700 5.800 5.100 2.100.9 2.900.9 3.900.8.600-.1 1.900-.8 2.200-1.500.3-.8.300-1.400.2-1.500-.1-.2-.3-.3-.6-.4z"/></svg>
+  Pedir agora
+</a>
+
+<script>
+// Tabs do cardápio
+document.querySelectorAll('.tabs button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
+    var f=b.dataset.f;
+    document.querySelectorAll('.menu .card').forEach(function(c){c.hidden=(f!=='all'&&c.dataset.c!==f)});
+  });
+});
+// Badge de funcionamento (terça a domingo, 18h às 00h, horário de Brasília)
+(function(){
+  try{
+    var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'numeric',hour12:false}).formatToParts(new Date());
+    var d=p.find(function(x){return x.type==='weekday'}).value, h=parseInt(p.find(function(x){return x.type==='hour'}).value,10)%24;
+    var open=d!=='Mon'&&h>=18;
+    var el=document.getElementById('status');
+    el.className='badge '+(open?'open':'closed');
+    el.lastElementChild.textContent=open?'Aberto agora, até as 00h':(d==='Mon'?'Fechado hoje, abrimos terça às 18h':'Abrimos hoje às 18h');
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
