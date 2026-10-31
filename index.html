@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lena's Lanches | Hamburgueria em Cordovil, Rio de Janeiro</title>
-<meta name="description" content="Lena's Lanches, hamburgueria em Cordovil desde 1995. Hambúrgueres, mistos e promoções. Peça pelo WhatsApp: 21 99469-0715. Terça a domingo, das 18h às 00h.">
+<meta name="description" content="Lena's Lanches, hamburgueria em Cordovil desde 1995. Cardápio online com hambúrgueres, mistos e promoções. Peça pelo WhatsApp: 21 99469-0715. Terça a domingo, das 18h às 00h.">
 <meta name="theme-color" content="#ff7a00">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lena's Lanches | Hamburgueria em Cordovil">
-<meta property="og:description" content="Lanche de verdade desde 1995. Peça pelo WhatsApp: 21 99469-0715.">
+<meta property="og:description" content="Cardápio online e pedido pelo WhatsApp: 21 99469-0715.">
 <meta property="og:image" content="assets/hamburgueres.webp">
 <link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,6 @@
   --r-card:8px;--r-input:6px;--r-button:6px;--r-pill:9999px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-[hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{font-family:'Geist',system-ui,-apple-system,Segoe UI,sans-serif;font-weight:400;color:var(--fg);background:var(--canvas);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
@@ -211,8 +210,8 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 <header class="nav"><div class="wrap">
   <img class="avatar" src="assets/logo.png" alt="Lena's Hamburgueria">
   <span class="name">Lena's Lanches</span>
-  <nav aria-label="Seções"><a href="#sobre">Desde 1995</a><a href="#pedir">Como pedir</a><a href="#onde">Onde estamos</a></nav>
-  <a class="btn primary" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">Fazer pedido</a>
+  <nav aria-label="Seções"><a href="#cardapio">Cardápio</a><a href="#sobre">Desde 1995</a><a href="#pedir">Como pedir</a><a href="#onde">Onde estamos</a></nav>
+  <a class="btn primary" href="#cardapio">Fazer pedido</a>
 </div></header>
 
 <main>
@@ -225,7 +224,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
         <span id="status" class="badge closed"><i></i><span>Terça a domingo, das 18h às 00h</span></span>
         <h1>Lanche de verdade, desde 1995 em Cordovil</h1>
         <p class="lead">Hambúrguer saindo da chapa na hora, do jeito que o bairro conhece há mais de 30 anos.</p>
-        <div class="actions"><a class="btn primary" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">Pedir pelo WhatsApp</a><a class="btn ghost" href="#onde">Como chegar</a></div>
+        <div class="actions"><a class="btn primary" href="#cardapio">Ver cardápio e pedir</a><a class="btn ghost" href="#onde">Como chegar</a></div>
       </div></div>
     </div>
     <div class="slide" style="--bg:#e66306">
@@ -233,8 +232,8 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
       <div class="wrap"><div class="txt">
         <span class="badge promo"><i style="background:var(--primary)"></i>Do simples ao completo</span>
         <h2>Do hambúrguer simples ao Big tudo</h2>
-        <p class="lead">Hambúrguer simples, X-bacon, X-egg, picanha e mais. Chame no WhatsApp e escolha o seu.</p>
-        <div class="actions"><a class="btn primary" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">Pedir pelo WhatsApp</a></div>
+        <p class="lead">15 opções de hambúrguer, de R$ 11 a R$ 26. Escolha o seu e monte o pedido aqui no site.</p>
+        <div class="actions"><a class="btn primary" href="#cardapio">Montar meu pedido</a></div>
       </div></div>
     </div>
     <div class="slide combo" style="--bg:#e25200">
@@ -242,8 +241,8 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
       <div class="wrap"><div class="txt">
         <span class="badge promo"><i style="background:var(--primary)"></i>Promoções</span>
         <h2>Big tudo + batata + guaravita por R$ 37</h2>
-        <p class="lead">Ou X burguer + refri lata por R$ 17. Peça pelo WhatsApp.</p>
-        <div class="actions"><a class="btn primary" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener">Pedir pelo WhatsApp</a></div>
+        <p class="lead">Ou X burguer + refri lata por R$ 17. Veja as promoções no cardápio.</p>
+        <div class="actions"><a class="btn primary" href="#cardapio" data-goto="Promoções">Ver promoções</a></div>
       </div></div>
     </div>
   </div>
@@ -252,8 +251,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
   <div class="dots" role="tablist" aria-label="Slides"></div>
 </section>
 
-<!-- Cardápio online escondido por enquanto: tire o atributo hidden da seção, da barra do pedido e do modal para voltar. -->
-<section id="cardapio" class="soft" hidden><div class="wrap">
+<section id="cardapio" class="soft"><div class="wrap">
   <div class="eyebrow">Cardápio online</div>
   <h2 class="t">Escolha e peça pelo WhatsApp</h2>
   <p class="sub">Adicione os itens, confira o total e envie o pedido para o nosso WhatsApp. Entrega e disponibilidade a gente confirma na conversa.</p>
@@ -290,8 +288,8 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
   <h2 class="t">Pedir é fácil</h2>
   <p class="sub">Três passos e o lanche chega quentinho.</p>
   <div class="steps">
-    <div class="step"><h3>Chame no WhatsApp</h3><p>Toque em um dos botões e fale com a gente.</p></div>
-    <div class="step"><h3>Escolha seu lanche</h3><p>Peça o que quiser, ou pergunte pela promoção do dia.</p></div>
+    <div class="step"><h3>Monte o pedido</h3><p>Escolha os lanches no cardápio e veja o total.</p></div>
+    <div class="step"><h3>Envie pelo WhatsApp</h3><p>O pedido já vai pronto para 21 99469-0715.</p></div>
     <div class="step"><h3>Receba em casa</h3><p>Ou venha buscar na Av. Meriti, 3963.</p></div>
   </div>
 </div></section>
@@ -334,7 +332,7 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
   </svg>
   <img class="kombi" src="assets/combo-faixa.webp" alt="Combo com hambúrguer, batata frita e refrigerante" loading="lazy">
   <div class="wrap">
-    <div class="txt"><h2>Bateu a fome?</h2><p>Terça a domingo, das 18h às 00h. Chame no WhatsApp e faça seu pedido.</p><a class="btn onprimary" href="https://wa.me/5521994690715?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Lena's%20Lanches." target="_blank" rel="noopener" style="margin-top:22px">Fazer meu pedido</a></div>
+    <div class="txt"><h2>Bateu a fome?</h2><p>Terça a domingo, das 18h às 00h. Monte o pedido e envie pelo WhatsApp.</p><a class="btn onprimary" href="#cardapio" style="margin-top:22px">Fazer meu pedido</a></div>
   </div>
 </div>
 
@@ -357,12 +355,12 @@ footer a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-wei
 <footer><div class="wrap">
   <div class="brand"><img class="avatar" src="assets/logo.png" alt="">Lena's Lanches · Hamburgueria desde 1995</div>
   <div>Av. Meriti, 3963 · Cordovil · RJ · <a href="https://wa.me/5521994690715" target="_blank" rel="noopener">21 99469-0715</a></div>
-  <div class="credit">Fotos ilustrativas de <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a>, de uso gratuito. Não são dos pratos da Lena's.</div>
+  <div class="credit">Fotos ilustrativas de <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a>, de uso gratuito. As fotos do cardápio não são dos pratos da Lena's.</div>
 </div></footer>
 
-<button class="cartbar" id="cartbar" type="button" hidden><span id="cb-count">0 itens</span><b id="cb-total">R$ 0,00</b><span>Ver pedido</span></button>
+<button class="cartbar" id="cartbar" type="button"><span id="cb-count">0 itens</span><b id="cb-total">R$ 0,00</b><span>Ver pedido</span></button>
 
-<dialog id="modal" aria-labelledby="m-title" hidden>
+<dialog id="modal" aria-labelledby="m-title">
   <div class="m-head"><h3 id="m-title">Seu pedido</h3><button type="button" id="m-close" aria-label="Fechar">×</button></div>
   <div class="m-body" id="m-body"></div>
   <div class="m-foot">
